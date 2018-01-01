@@ -127,6 +127,7 @@ $(document).ready(function() {
       });
       return val;
     });
+
     var n = txt.shift();
     n = n.shift();
     var G = new Graph(n, []);
@@ -134,12 +135,16 @@ $(document).ready(function() {
     for (var i = 0; i < txt.length; i++) {
       G.add_edge(txt[i][0], txt[i][1], txt[i][2]);
     }
+
     var T = new Graph(G.n, []);
     T.init_graph();
+
     var prim = new Prim(G, T);
     prim.do();
+
+    //console.log(prim.sum_w);
+    //console.log(prim.result);
+    //console.log(prim.T.A);
     $("#txt").html(prim.sum_w);
-    // var data = JSON.stringify(txt);
-    // document.cookie = data;
   });
 });
